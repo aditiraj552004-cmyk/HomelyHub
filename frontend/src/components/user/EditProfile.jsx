@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../../css/Profile.css";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser } from "../../store/User/user-action";
+import { updateUser } from "../../store/user/user-action";
 import { useForm } from "@tanstack/react-form";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { userActions } from "../../store/User/user-slice";
+import { userActions } from "../../store/user/user-slice";
 
 const EditProfile = () => {
   const { user, errors, loading } = useSelector((state) => state.user);

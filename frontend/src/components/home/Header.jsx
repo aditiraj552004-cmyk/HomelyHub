@@ -3,7 +3,7 @@ import Search from "./Search";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Filter from "./Filter";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../store/User/user-action";
+import { logout } from "../../store/user/user-action";
 import toast from "react-hot-toast";
 import { propertyActions } from "../../store/Property/property-slice";
 import { getAllProperties } from "../../store/Property/property-action";
