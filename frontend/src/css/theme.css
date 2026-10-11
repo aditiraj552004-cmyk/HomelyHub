@@ -1,0 +1,144 @@
+:root {
+  color-scheme: light;
+  --app-bg: #ffffff;
+  --surface: #ffffff;
+  --surface-muted: #f5f8f6;
+  --text-primary: #17221c;
+  --text-secondary: #66756c;
+  --border-color: #dfe8e2;
+  --input-bg: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --app-bg: #111915;
+  --surface: #19231e;
+  --surface-muted: #202d26;
+  --text-primary: #edf5ef;
+  --text-secondary: #b2c0b7;
+  --border-color: #35443b;
+  --input-bg: #131c17;
+}
+
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] #root,
+:root[data-theme="dark"] .App {
+  background: var(--app-bg) !important;
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+:root[data-theme="dark"] :is(
+  h1, h2, h3, h4, h5, h6, p, label, li, small, strong,
+  .property figcaption h5, .property figcaption h6,
+  .property figcaption p, .form-labels, .form-paras
+) {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] :is(a, .text-muted, .text-secondary) {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] :is(
+  .header, footer, .searchbar, .property, .modal-content,
+  .accf-card, .accf-page, .trip-page, .trip-form,
+  .wrapper, .wrapper form,
+  .profile, .details-container, .details-information,
+  .details-information-container, .details-total-price-container,
+  .main-container, .mybookings-container, .accom-container,
+  .payment-container, .payment-header, .booking-summary-card,
+  .payment-gateway-modal, .form-container, .property-payment,
+  .map-image-container, .property-description, .property-map,
+  .filter-modal, .filter-modal-content
+) {
+  background-color: var(--surface) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] :is(
+  .accf-page, .trip-page, .wrapper, .property-container,
+  .payment-container, .details-container, .accom-container
+) {
+  background-image: none !important;
+  background-color: var(--app-bg) !important;
+}
+
+:root[data-theme="dark"] :is(
+  input:not([type="checkbox"]):not([type="radio"]), textarea, select,
+  .form-control, .accf-input, .searchbar, .date_picker
+) {
+  background-color: var(--input-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] :is(input, textarea, select)::placeholder {
+  color: #91a198 !important;
+}
+
+:root[data-theme="dark"] :is(
+  .dropdown-menu, .dropdown-item, .modal-images-container,
+  .image-preview-box, .booking-stay-information, .trip-result,
+  .trip-result-card, .filter-section, .filter-footer
+) {
+  background-color: var(--surface-muted) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] :is(
+  .header, footer, .searchbar, .property, .accf-card,
+  .trip-form, .login-container, .profile, .details-information,
+  .details-total-price-container, .main-container, .booking-summary-card
+) {
+  box-shadow: 0 8px 24px rgb(0 0 0 / 22%) !important;
+}
+
+.theme-toggle {
+  flex: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dfe8e2;
+  border-radius: 50%;
+  background: #f5f8f6;
+  color: #14532d;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  background: #e8f2ec;
+}
+
+.theme-toggle .material-symbols-outlined {
+  font-size: 1.35rem;
+}
+
+:root[data-theme="dark"] .theme-toggle {
+  background: #26382d;
+  color: #f6c453;
+  border-color: #405348;
+}
+
+:root[data-theme="dark"] .theme-toggle:hover {
+  background: #31463a;
+}
+
+:root[data-theme="dark"] :is(button, .btn, .dropdown-item):focus-visible,
+:root[data-theme="dark"] .theme-toggle:focus-visible {
+  outline: 2px solid #5ecb91;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body, .header, footer, .property, .accf-card, .trip-form,
+  input, textarea, select, .dropdown-menu {
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+  }
+}
