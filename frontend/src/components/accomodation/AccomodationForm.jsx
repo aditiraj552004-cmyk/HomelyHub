@@ -7,7 +7,7 @@ import AmenitiesField from "./AmenitiesField";
 import {
   createAccomodation,
   getAllAccomodation,
-} from "../../store/Accomodation/Accomodation-action";
+} from "../../store/accomodation/Accomodation-action";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";

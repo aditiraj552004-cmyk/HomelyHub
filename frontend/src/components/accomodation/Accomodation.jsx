@@ -4,7 +4,7 @@ import ProgressSteps from "../ProgressSteps";
 import MyAccomodation from "./MyAccomodation";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllAccomodation } from "../../store/Accomodation/Accomodation-action";
+import { getAllAccomodation } from "../../store/accomodation/Accomodation-action";
 import LoadingSpinner from "../LoadingSpinner";
 
 const Accomodation = () => {
