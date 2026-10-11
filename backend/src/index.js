@@ -15,6 +15,16 @@ import { createOrder } from "./controllers/bookingController.js";
 const app = express();
 
 const PORT = process.env.PORT || 8080;
+const allowedOrigins = new Set(
+  [
+    process.env.ORIGIN_ACCESS_URL,
+    process.env.FRONTEND_URL,
+    "https://homelyhub-stays.netlify.app",
+    "http://localhost:5173",
+  ]
+    .filter(Boolean)
+    .flatMap((origin) => origin.split(",").map((value) => value.trim()))
+);
 
 
 // ======================================================
@@ -31,17 +41,16 @@ app.use(
 
 app.use(cookieParser());
 
-app.use(cors({
-  origin:process.env.ORIGIN_ACCESS_URL,
-  credentials:true
-}))
-
 app.use(
   cors({
-    origin:
-      process.env.FRONTEND_URL ||
-      "http://localhost:5173",
+    origin(origin, callback) {
+      // Allow non-browser requests and explicitly configured app origins.
+      if (!origin || allowedOrigins.has(origin)) {
+        return callback(null, true);
+      }
 
+      return callback(new Error("Origin is not allowed by CORS"));
+    },
     credentials: true,
   })
 );
